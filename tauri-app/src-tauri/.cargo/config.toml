@@ -1,0 +1,19 @@
+# Cargo配置优化编译速度
+
+[build]
+# 并行编译作业数（根据你的CPU核心数调整）
+jobs = 24
+# 使用更快的链接器（Windows上使用lld）
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+[target.x86_64-pc-windows-msvc]
+# Windows特定优化
+linker = "rust-lld"
+
+[profile.dev]
+# 增加代码生成单元以提高并行度
+codegen-units = 256
+
+[net]
+# 使用更快的国内镜像源（如果网络慢的话）
+# git-fetch-with-cli = true
