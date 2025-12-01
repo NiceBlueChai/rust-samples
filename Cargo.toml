@@ -1,0 +1,20 @@
+[workspace]
+resolver = "2"
+members = ["crates/*"]
+exclude = ["standalone/*"]
+
+[workspace.package]
+publish = false
+edition = "2024"
+
+[workspace.dependencies]
+# 常用依赖放这里，成员 crate 用 xxx.workspace = true 引用
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+clap = { version = "4.5", features = ["derive"] }
+image = "0.25"
