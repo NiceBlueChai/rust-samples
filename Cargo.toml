@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 members = ["crates/*"]
-exclude = ["standalone/*"]
+exclude = ["standalone/*", "standalone/tauri-app"]
 
 [workspace.package]
 publish = false

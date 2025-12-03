@@ -105,7 +105,14 @@ fn process_html_images(html_content: &str, _base_url: &str) -> String {
     use regex::Regex;
     
     debug!("开始处理HTML图片，内容长度: {}", html_content.len());
-    debug!("HTML内容预览: {}", if html_content.len() > 200 { &html_content[..200] } else { html_content });
+    debug!(
+        "HTML内容预览: {}",
+        if html_content.chars().count() > 100 {
+            html_content.chars().take(100).collect::<String>()
+        } else {
+            html_content.to_string()
+        }
+    );
     
     // 创建正则表达式来匹配img标签，处理HTML实体编码
     // 匹配格式：<img ... alt="index.php?m=file&amp;f=read&amp;t=ext&amp;fileID=id" ... />
