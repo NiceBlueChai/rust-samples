@@ -5,6 +5,7 @@ edition.workspace = true
 publish.workspace = true
 
 [dependencies]
+
 # 这里只放核心/通用依赖，保持最小化
 
 [dev-dependencies]
@@ -17,7 +18,9 @@ tracing.workspace = true
 tracing-subscriber.workspace = true
 clap.workspace = true
 image.workspace = true
-
+gpui.workspace = true
+gpui-component.workspace = true
+fake.workspace = true
 # 如果某个 example 需要特定依赖，可以这样单独指定：
 # [[example]]
 # name = "ascii_generator"
